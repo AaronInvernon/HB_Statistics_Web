@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Digi";
+    src: url("fonts/ds-digib.ttf");
+  }
+  
+
+#div1 {
+  /*background-color: red;*/
+  transform: translateY(33%);
+}
+
+#time {
+  font-family: 'Nova Mono', monospace;
+  font-size: 18vw;
+  text-align: center;
+  text-shadow: 0px 0px 20px;
+}

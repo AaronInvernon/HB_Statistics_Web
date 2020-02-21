@@ -1,7 +1,7 @@
 import React from 'react';
 import HBService from '../../services/HBService';
 import { Link, Redirect } from 'react-router-dom';
-import { WithAuthConsumer } from '../../contexts/AuthContext';
+import  { withAuthConsumer }  from '../../contexts/AuthContext';
 
 class Login extends React.Component {
     state ={
@@ -92,4 +92,4 @@ class Login extends React.Component {
     }   
 }
 
-export default WithAuthConsumer(Login);
+export default withAuthConsumer(Login);
