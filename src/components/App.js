@@ -1,7 +1,10 @@
 import React from 'react';
-import Login from '../components/misc/Login'
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 //import AuthenticatedRoute from '../components/misc/AuthenticatedRoute'
+
+import Login from '../components/misc/Login'
+import Register from '../components/misc/Register'
+import Menu from '../components/misc/Menu'
 
 class App extends React.Component {
   render() { 
@@ -12,6 +15,12 @@ class App extends React.Component {
             {/* <AuthenticatedRoute> */}
               <Route exact path="/login">
                 <Login/>
+              </Route>
+              <Route exact path="/signup">
+                <Register/>
+              </Route>
+              <Route exact path="/">
+                <Menu/>
               </Route>
             {/* </AuthenticatedRoute> */}
           </Switch>
