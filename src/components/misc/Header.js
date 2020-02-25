@@ -9,6 +9,7 @@ const Header = () => {
             </a>
             
             <form action="/logout" method="POST" className="form-inline my-2 my-lg-0">
+                <button className="btn btn-info mr-5">Statistics <i className="fa fa-file-text-o" aria-hidden="true"></i></button>
                 <button className="btn btn-danger" type="submit">Log Out</button>
             </form>
 

@@ -1,7 +1,11 @@
 import React from 'react';
 
-const PlayerTable = () =>
+const handleSubmit = (event, modalFn) => {
+    event.preventDefault()
+    modalFn()
+}
 
+const PlayerTable = ({ showModal }) =>
     <table className="PlayerTable table table-striped">
         <thead>
             <tr>
@@ -16,9 +20,9 @@ const PlayerTable = () =>
             <tr>
                 <th>1</th>
                 <td>
-                    <form className="PlayerForm justify-content-between">
+                    <form className="PlayerForm" onSubmit={event => handleSubmit(event, showModal)}>
                         <label>Mark </label>
-                        <button className="btn btn-success" type="">
+                        <button className="btn btn-success" type="submit">
                             <i className="fa fa-futbol-o" aria-hidden="true"></i>
                         </button>
                     </form>
@@ -26,7 +30,7 @@ const PlayerTable = () =>
                 <td></td>
                 <td>5</td>
                 <td>
-                    <form className="PlayerForm justify-content-between">
+                    <form className="PlayerForm">
                         <label>Otto </label>
                         <button className="btn btn-success" type="">
                             <i className="fa fa-futbol-o" aria-hidden="true"></i>
@@ -37,7 +41,7 @@ const PlayerTable = () =>
             <tr>
                 <th>2</th>
                 <td>
-                    <form className="PlayerForm justify-content-between">
+                    <form className="PlayerForm ">
                         <label>JAcob </label>
                         <button className="btn btn-success" type="">
                             <i className="fa fa-futbol-o" aria-hidden="true"></i>
@@ -47,7 +51,7 @@ const PlayerTable = () =>
                 <td></td>
                 <td>15</td>
                 <td>
-                    <form className="PlayerForm justify-content-between">
+                    <form className="PlayerForm">
                         <label>Thornton </label>
                         <button className="btn btn-success" type="">
                             <i className="fa fa-futbol-o" aria-hidden="true"></i>
@@ -58,7 +62,7 @@ const PlayerTable = () =>
             <tr>
                 <th>3</th>
                 <td>
-                    <form className="PlayerForm justify-content-between">
+                    <form className="PlayerForm">
                         <label>Larry </label>
                         <button className="btn btn-success" type="">
                             <i className="fa fa-futbol-o" aria-hidden="true"></i>
@@ -68,7 +72,7 @@ const PlayerTable = () =>
                 <td></td>
                 <td>24</td>
                 <td>
-                    <form className="PlayerForm justify-content-between">
+                    <form className="PlayerForm">
                         <label>Thornton </label>
                         <button className="btn btn-success" type="">
                             <i className="fa fa-futbol-o" aria-hidden="true"></i>

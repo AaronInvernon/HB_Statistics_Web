@@ -8,7 +8,7 @@
 }
 
 #time {
-  font-family: 'Nova Mono', monospace;
+  font-family: 'Nova Mono';
   font-size: 18vw;
   text-align: center;
   text-shadow: 0px 0px 20px;
@@ -30,4 +30,30 @@
 .Chronometer img{
   width: 40px; 
   margin: 5px;
+}
+
+
+.PlayerForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Modal  {
+  border: 1px solid;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  position: absolute;
+  justify-content: center;
+  padding-top: 25%;
+  background-image: url('../assets/goal.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cBtn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }

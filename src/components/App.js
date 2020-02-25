@@ -7,11 +7,23 @@ import Register from '../components/misc/Register'
 import Home from '../components/misc/Home'
 import Match from '../components/match/Match'
 
+import ModalGoalContent from '../components/misc/ModalGoal'
+
 class App extends React.Component {
-  render() { 
+  state = {
+    modalVisibility: 'none'
+  }
+
+  hideModal = () => this.setState({ modalVisibility: 'none' })
+  showModal = () => this.setState({ modalVisibility: 'flex' })
+
+  render() {
+    const { modalVisibility } = this.state
+    const { showModal, hideModal } = this
     return (
       <div className="App">
         <div>
+          <ModalGoalContent {...{ modalVisibility, hideModal }} />
           <Switch>
             {/* <AuthenticatedRoute> */}
               <Route exact path="/login">
@@ -24,7 +36,7 @@ class App extends React.Component {
                 <Home/>
               </Route>
               <Route exact path="/match">
-                <Match/>
+                <Match {...{ showModal }} />
               </Route>
             {/* </AuthenticatedRoute> */}
           </Switch>
