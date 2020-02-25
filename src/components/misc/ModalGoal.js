@@ -1,60 +1,26 @@
 import React from 'react'
 
-class ModalGoal {
-     MydModalWithGrid(props) {
-        return (
-          <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-vcenter">
-                Using Grid in Modal
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Container>
-                <Row className="show-grid">
-                  <Col xs={12} md={8}>
-                    <code>.col-xs-12 .col-md-8</code>
-                  </Col>
-                  <Col xs={6} md={4}>
-                    <code>.col-xs-6 .col-md-4</code>
-                  </Col>
-                </Row>
-      
-                <Row className="show-grid">
-                  <Col xs={6} md={4}>
-                    <code>.col-xs-6 .col-md-4</code>
-                  </Col>
-                  <Col xs={6} md={4}>
-                    <code>.col-xs-6 .col-md-4</code>
-                  </Col>
-                  <Col xs={6} md={4}>
-                    <code>.col-xs-6 .col-md-4</code>
-                  </Col>
-                </Row>
-              </Container>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
-          </Modal>
-        );
-      }
-      
-       App() {
-        const [modalShow, setModalShow] = useState(false);
-      
-        return (
-          <ButtonToolbar>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-              Launch modal with grid
-            </Button>
-      
-            <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
-          </ButtonToolbar>
-        );
-      }
-      
-      render(<App />);
+const ModalGoalContent = () => {
+  return (
+<div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div className="modal-dialog modal-dialog-centered" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+        ...
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  )
 }
-
-export default ModalGoal;
+export default ModalGoalContent;

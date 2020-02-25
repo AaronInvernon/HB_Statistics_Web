@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { player } from '../../assets'
-import ModalGoal from '../misc/ModalGoal'
 
 
 
 const Menu = () => {
     return (
         <div className="container justify-content-center w-80">
+
             <div className="container text-center w-80 center m-4">
                 <img className=" w-50" src={player} alt="logo" />
                 <h1>Handball Statistics</h1>
@@ -24,9 +24,10 @@ const Menu = () => {
                 </li>
             </ul>
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            {/* <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                 Launch demo modal
-            </button>
+            </button> */}
+
         </div>
     )
 }

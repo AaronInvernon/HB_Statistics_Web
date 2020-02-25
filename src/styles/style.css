@@ -1,4 +1,7 @@
-
+@font-face {
+  font-family: "Digi";
+  src: url("./fonts/ds-digi.ttf");
+}
 
 #div1 {
   transform: translateY(33%);
@@ -13,4 +16,18 @@
 
 .container ul li{
   list-style: none;
+}
+
+.ScoreBoard {
+  border:1px solid black;
+}
+
+.Chronometer{
+  text-align: center;
+  font-family: "Digi";
+}
+
+.Chronometer img{
+  width: 40px; 
+  margin: 5px;
 }

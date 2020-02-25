@@ -2,37 +2,79 @@ import React from 'react';
 
 const PlayerTable = () =>
 
-    <table class="table table-striped">
+    <table className="PlayerTable table table-striped">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Names</th>
-                <th scope="col"> </th>
-                <th scope="col">#</th>
-                <th scope="col">Names</th>
+                <th>#</th>
+                <th>Names</th>
+                <th> </th>
+                <th>#</th>
+                <th>Names</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
+                <th>1</th>
+                <td>
+                    <form className="PlayerForm justify-content-between">
+                        <label>Mark </label>
+                        <button className="btn btn-success" type="">
+                            <i className="fa fa-futbol-o" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
                 <td></td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>5</td>
+                <td>
+                    <form className="PlayerForm justify-content-between">
+                        <label>Otto </label>
+                        <button className="btn btn-success" type="">
+                            <i className="fa fa-futbol-o" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
             </tr>
             <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
+                <th>2</th>
+                <td>
+                    <form className="PlayerForm justify-content-between">
+                        <label>JAcob </label>
+                        <button className="btn btn-success" type="">
+                            <i className="fa fa-futbol-o" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
                 <td></td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>15</td>
+                <td>
+                    <form className="PlayerForm justify-content-between">
+                        <label>Thornton </label>
+                        <button className="btn btn-success" type="">
+                            <i className="fa fa-futbol-o" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
             </tr>
             <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
+                <th>3</th>
+                <td>
+                    <form className="PlayerForm justify-content-between">
+                        <label>Larry </label>
+                        <button className="btn btn-success" type="">
+                            <i className="fa fa-futbol-o" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
                 <td></td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>24</td>
+                <td>
+                    <form className="PlayerForm justify-content-between">
+                        <label>Thornton </label>
+                        <button className="btn btn-success" type="">
+                            <i className="fa fa-futbol-o" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>

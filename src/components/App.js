@@ -4,7 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import Login from '../components/misc/Login'
 import Register from '../components/misc/Register'
-import Menu from '../components/misc/Menu'
+import Home from '../components/misc/Home'
+import Match from '../components/match/Match'
 
 class App extends React.Component {
   render() { 
@@ -20,7 +21,10 @@ class App extends React.Component {
                 <Register/>
               </Route>
               <Route exact path="/">
-                <Menu/>
+                <Home/>
+              </Route>
+              <Route exact path="/match">
+                <Match/>
               </Route>
             {/* </AuthenticatedRoute> */}
           </Switch>
