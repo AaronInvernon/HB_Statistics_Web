@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from '../misc/Header'
+import { Link } from 'react-router-dom'
 
 
 const PreMatch = () => {
     return (
         <div className="PreMatch">
             <Header />
-            <form className="container mt-3">
+            <form className="container  text-center mt-3">
                 <div className="form-group">
                     <label htmlFor="team1">Choose your team:</label>
                     <select id="team1" name="team1" form="team1">
@@ -28,13 +29,13 @@ const PreMatch = () => {
                     </select>
                 </div>
 
-                <button className="btn btn-success">
-                    Start Match
+                <div className="container mt-5">
+                    <button className="btn btn-success mr-3">
+                        Start Match
                 </button>
 
-                <button className="btn btn-info">
-                    Create Team
-                </button>
+                    <Link to="/team/new" className="btn btn-info">Create Team</Link>
+                </div>
             </form>
         </div>
     )

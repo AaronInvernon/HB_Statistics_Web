@@ -1,3 +1,7 @@
+*{
+  font-size: 1.5rem;
+}
+
 @font-face {
   font-family: "Digi";
   src: url("./fonts/ds-digi.ttf");
@@ -98,7 +102,19 @@
   border-radius: 50%;
 }
 
+.NewPlayerForm{
+  display: flex;
+  justify-content: space-around;
+  margin: 30px;
+}
 
-.form-group { 
-  text-align: center;
+.NewPlayerForm .form-group{
+  width: 50%;
+}
+
+.NewPlayerForm .form-group label{
+  color: black;
+  margin-right: 10px;
+  font-size: 25px;
+  font-weight: bold;
 }

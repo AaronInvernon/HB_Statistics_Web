@@ -1,7 +1,6 @@
 import React from 'react';
 import HBService from '../../services/HBService';
 import { Link, Redirect } from 'react-router-dom';
-import { withAuthConsumer } from '../../contexts/AuthContext';
 import { player } from '../../assets'
 
 class Register extends React.Component {
@@ -28,15 +27,18 @@ class Register extends React.Component {
     }
 
     handleSubmit = (event) => {
+        event.preventDefault();
+
         const { data } = this.state
+        console.info(data)
+        // const formData = new FormData()
+        // formData.append('name', data.name)
+        // formData.append('email', data.email)
+        // formData.append('password', data.password)
 
-        const formData = new FormData()
-        formData.append('name', data.name)
-        formData.append('email', data.email)
-        formData.append('password', data.password)
-
+        console.log(data)
         this.setState({ loading: true, error: false }, () => {
-            HBService.register(formData)
+            HBService.register(data)
                 .then(() => {
                     this.setState({ success: true })
                 })
@@ -56,7 +58,7 @@ class Register extends React.Component {
 
         return (
             <div className="Register container  m-5">
-                <div className="container text-center w-50 center">
+                <div className="container text-center w-50 ">
                     <img className=" w-50" src={player} alt="logo" />
                     <h1>Handball Statistics</h1>
                 </div>
@@ -75,7 +77,7 @@ class Register extends React.Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">Email: </label>
 
                         <input
                             value={this.state.data.email}
@@ -90,7 +92,7 @@ class Register extends React.Component {
                     </div>
 
                     <div className="form-group mb-5">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password: </label>
 
                         <input
                             value={this.state.data.password}
@@ -99,7 +101,7 @@ class Register extends React.Component {
                             type="password"
                             className={`form-control ${errorClassName}`}
                             id="password"
-                            placeholder="Password"
+                            placeholder="Enter password"
                         />
                     </div>
 
@@ -119,4 +121,4 @@ class Register extends React.Component {
 
 }
 
-export default withAuthConsumer(Register)
+export default Register
