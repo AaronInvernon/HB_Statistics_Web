@@ -9,9 +9,8 @@ const Match = ({ showModal }) => {
             <Header />
             <ScoreBoard />
             <Players {...{ showModal }} />
-            {/* <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Launch demo modal
-            </button> */}
+            
+            <button className="btn btn-info m-3">Statistics <i className="fa fa-file-text-o" aria-hidden="true"></i></button>
         </div>
         
     )

@@ -27,11 +27,14 @@ const getMatches = () => http.get('/matches')
 
 const getTeams = () => http.get('/teams')
 
+const newMatch = () => http.get('/match/new')
+
 
 export default {
     login, 
     logout,
     register, 
     getMatches, 
-    getTeams
+    getTeams, 
+    newMatch
 }

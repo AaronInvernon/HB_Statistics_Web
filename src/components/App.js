@@ -6,16 +6,18 @@ import Login from '../components/misc/Login'
 import Register from '../components/misc/Register'
 import Home from '../components/misc/Home'
 import Match from '../components/match/Match'
+import PreMatch from '../components/match/PreMatch'
+import Modal from '../components/misc/Modal'
 
-import ModalGoalContent from '../components/misc/ModalGoal'
+import ModalGoalContent from '../ui/ModalContent'
 
 class App extends React.Component {
   state = {
-    modalVisibility: 'none'
+    modalVisibility: false
   }
 
-  hideModal = () => this.setState({ modalVisibility: 'none' })
-  showModal = () => this.setState({ modalVisibility: 'flex' })
+  hideModal = () => this.setState({ modalVisibility: false })
+  showModal = () => this.setState({ modalVisibility: true })
 
   render() {
     const { modalVisibility } = this.state
@@ -23,20 +25,33 @@ class App extends React.Component {
     return (
       <div className="App">
         <div>
-          <ModalGoalContent {...{ modalVisibility, hideModal }} />
+          {/* <ModalGoalContent {...{ modalVisibility, hideModal }} /> */}
+          {
+            modalVisibility ?
+              <Modal>
+                <ModalGoalContent {...{ hideModal }} />
+              </Modal> : null
+          }
           <Switch>
             {/* <AuthenticatedRoute> */}
               <Route exact path="/login">
                 <Login/>
               </Route>
+
               <Route exact path="/signup">
                 <Register/>
               </Route>
+
               <Route exact path="/">
                 <Home/>
               </Route>
+
               <Route exact path="/match">
                 <Match {...{ showModal }} />
+              </Route>
+
+              <Route exact path="/match/new">
+                <PreMatch />
               </Route>
             {/* </AuthenticatedRoute> */}
           </Switch>

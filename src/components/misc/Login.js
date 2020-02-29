@@ -1,15 +1,16 @@
 import React from 'react';
 import HBService from '../../services/HBService';
 import { Link, Redirect } from 'react-router-dom';
-import  { withAuthConsumer }  from '../../contexts/AuthContext';
+import { withAuthConsumer } from '../../contexts/AuthContext';
+import { player } from '../../assets'
 
 class Login extends React.Component {
-    state ={
+    state = {
         data: {
             email: '',
             password: ''
-        }, 
-        error: false, 
+        },
+        error: false,
         loading: false
     }
 
@@ -18,7 +19,7 @@ class Login extends React.Component {
 
         this.setState({
             data: {
-                ...this.state.data, 
+                ...this.state.data,
                 [name]: value
             }
         })
@@ -26,37 +27,41 @@ class Login extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({ loading: true, error: false}, () => {
+        this.setState({ loading: true, error: false }, () => {
             HBService.login({ ...this.state.data })
-            .then(
-                (user) => {
-                    this.props.setUser(user)
-                },
-                () => {
-                    this.setState({ error: true, loading: false })
-                }
-            )
+                .then(
+                    (user) => {
+                        this.props.setUser(user)
+                    },
+                    () => {
+                        this.setState({ error: true, loading: false })
+                    }
+                )
         })
-    } 
+    }
 
     render() {
         const errorClassName = this.state.error ? 'is-invalid' : ''
-        
+
         if (this.props.currentUser) {
-            return <Redirect to="/"/>
+            return <Redirect to="/" />
         }
 
         return (
-            <div className="Login">
+            <div className="Login container  m-5">
+                <div className="container text-center w-50 center">
+                    <img className=" w-50" src={player} alt="logo" />
+                    <h1>Handball Statistics</h1>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="email">Email: </label>
-                        <input 
+                        <input
                             value={this.state.data.email}
-                            onchange={this.handleChange}
+                            onChange={this.handleChange}
                             autoComplete="off"
                             name="email"
-                            typw="email"
+                            type="email"
                             className={`form-control ${errorClassName}`}
                             id="email"
                             placeholder="Enter email"
@@ -65,12 +70,12 @@ class Login extends React.Component {
 
                     <div className="form-group">
                         <label htmlFor="password">Password: </label>
-                        <input 
+                        <input
                             value={this.state.data.password}
-                            onchange={this.handleChange}
+                            onChange={this.handleChange}
                             autoComplete="off"
                             name="password"
-                            typw="password"
+                            type="password"
                             className={`form-control ${errorClassName}`}
                             id="password"
                             placeholder="Enter password"
@@ -79,17 +84,17 @@ class Login extends React.Component {
 
                     <button
                         type="submit"
-                        className="btn btn-primary mb-3"
+                        className="btn btn-primary mr-3"
                         disabled={this.state.loading}
                     >
                         Login
                     </button>
 
-                    <Link to="/signup"> Sign Up</Link>
+                    <Link to="/signup" className="btn btn-info"> Sign Up</Link>
                 </form>
             </div>
         )
-    }   
+    }
 }
 
 export default withAuthConsumer(Login);

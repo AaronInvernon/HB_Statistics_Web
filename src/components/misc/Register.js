@@ -2,6 +2,7 @@ import React from 'react';
 import HBService from '../../services/HBService';
 import { Link, Redirect } from 'react-router-dom';
 import { withAuthConsumer } from '../../contexts/AuthContext';
+import { player } from '../../assets'
 
 class Register extends React.Component {
     state = {
@@ -54,7 +55,11 @@ class Register extends React.Component {
 
 
         return (
-            <div className="Register">
+            <div className="Register container  m-5">
+                <div className="container text-center w-50 center">
+                    <img className=" w-50" src={player} alt="logo" />
+                    <h1>Handball Statistics</h1>
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name: </label>
@@ -100,12 +105,13 @@ class Register extends React.Component {
 
                     <button
                         type="submit"
-                        className="btn btn-primary mb-3"
+                        className="btn btn-primary mr-3"
                         disabled={this.state.loading}
                     >
                         Sign up
                     </button>
-                    <Link to="/login"> Log in</Link>
+
+                    <Link to="/login" className="btn btn-info">Login</Link>
                 </form>
             </div>
         )
