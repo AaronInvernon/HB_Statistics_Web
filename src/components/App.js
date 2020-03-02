@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 //import AuthenticatedRoute from '../components/misc/AuthenticatedRoute'
 
 import Login from '../components/misc/Login'
@@ -8,6 +8,7 @@ import Home from '../components/misc/Home'
 import Match from '../components/match/Match'
 import PreMatch from '../components/match/PreMatch'
 import Modal from '../components/misc/Modal'
+import TeamList from '../components/team/TeamsList'
 
 
 import NewTeam from '../ui/team/newTeam'
@@ -45,7 +46,12 @@ class App extends React.Component {
             <Route exact path="/signup">
               <Register />
             </Route>
+
             <AuthenticatedRoute>
+
+              <Route exact path="/logout">
+                <Redirect to="/login" />
+              </Route>
 
               <Route exact path="/">
                 <Home />
@@ -59,11 +65,15 @@ class App extends React.Component {
                 <PreMatch />
               </Route>
 
-              <Route exact path="/team/new">
+              <Route exact path="/teams/">
+                <TeamList />
+              </Route>
+
+              <Route exact path="/teams/new">
                 <NewTeam />
               </Route>
 
-              <Route exact path="/team/player">
+              <Route exact path="/teams/player">
                 <NewPlayer />
               </Route>
             </AuthenticatedRoute>

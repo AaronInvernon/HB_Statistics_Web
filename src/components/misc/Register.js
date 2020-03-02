@@ -30,13 +30,6 @@ class Register extends React.Component {
         event.preventDefault();
 
         const { data } = this.state
-        console.info(data)
-        // const formData = new FormData()
-        // formData.append('name', data.name)
-        // formData.append('email', data.email)
-        // formData.append('password', data.password)
-
-        console.log(data)
         this.setState({ loading: true, error: false }, () => {
             HBService.register(data)
                 .then(() => {
