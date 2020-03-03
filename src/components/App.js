@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 //import AuthenticatedRoute from '../components/misc/AuthenticatedRoute'
 
 import Login from '../components/misc/Login'
@@ -48,10 +48,6 @@ class App extends React.Component {
             </Route>
 
             <AuthenticatedRoute>
-
-              <Route exact path="/logout">
-                <Redirect to="/login" />
-              </Route>
 
               <Route exact path="/">
                 <Home />

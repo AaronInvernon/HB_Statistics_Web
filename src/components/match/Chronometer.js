@@ -1,5 +1,4 @@
 import React from 'react'
-import { play, pause } from '../../assets'
 
 export default class Chronometer extends React.Component {
 
@@ -9,85 +8,45 @@ export default class Chronometer extends React.Component {
         this.currentTime = 0
         this.intervalId = 0
         this.state = {
-            play: true
-        }
+            timerOn: false,
+            timerStart: 0,
+            timerTime: 0
+        };
     }
 
+    startTimer = () => {
+        this.setState({
+            timerOn: true,
+            timerTime: this.state.timerTime,
+            timerStart: Date.now() - this.state.timerTime
+        });
+        this.timer = setInterval(() => {
+            this.setState({
+                timerTime: Date.now() - this.state.timerStart
+            });
+        }, 10);
+    };
 
-    addSeconds = () => this.currentTime++;
-
-    startClick() {
-        this.intervalId = setInterval(this.addSeconds(), 1000)
-    }
-
-    getMinutes() {
-        let minutes = 0;
-
-        if (this.currentTime >= 60) {
-            minutes = Math.floor(this.currentTime / 60);
-        }
-
-        return minutes;
-    }
-
-    getSeconds() {
-        let seconds = 0;
-
-        seconds = this.currentTime % 60;
-
-        return seconds;
-    }
-
-    twoDigitsNumber(number) {
-
-        if (number < 10) {
-
-            return '0' + number;
-        } else {
-
-            return `${number}`
-        }
-
-    }
-
-    stopClick() {
-        clearInterval(this.intervalId)
-    }
-
-    playButton(props) {
-        this.setState( {play: false} )
-        return (
-            <img src={play} alt="button" onClick={this.startClick()} />
-        );
-    }
-
-    pauseButton(props) {
-        //this.setState( {play: true} )
-        return (
-            <img src={pause} alt="button" onClick={this.stopClick()} />
-        );
-    }
+    stopTimer = () => {
+        this.setState({ timerOn: false });
+        clearInterval(this.timer);
+    };
 
     render() {
-
-        const play = this.state.play
-        let button;
-
-        if (play) {
-
-             button = this.playButton()
-
-        } else {
-             button = this.pauseButton()
-        }
-
+        const { timerTime } = this.state;
+        let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
+        let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
         return (
             <div className="Chronometer ">
                 <h1>
-                    {this.twoDigitsNumber(this.getMinutes())}:{this.twoDigitsNumber(this.getSeconds())}
+                    {minutes}:{seconds}
                 </h1>
-
-                {button}
+                {this.state.timerOn === false  && (
+                    <button onClick={this.startTimer}>Start</button>
+                )}
+                {this.state.timerOn === true && (
+                    <button onClick={this.stopTimer}>Stop</button>
+                )}
 
             </div>
         )
