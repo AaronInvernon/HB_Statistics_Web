@@ -29,6 +29,12 @@ const getTeams = () => http.get('/teams')
 
 const createTeam = (data) => http.post('/teams/new', data)
 
+const createPlayer = (data) => http.post(`/teams/${data.teamID}/players`, data)
+
+const createMatch = (data) => http.post('/matches/new', data)
+
+const getMatch = (data) => http.get(`/matches/${data.id}`)
+
 const newMatch = () => http.get('/matches/new')
 
 
@@ -38,6 +44,9 @@ export default {
     register, 
     getMatches, 
     createTeam, 
+    createPlayer,
+    createMatch,
     getTeams, 
+    getMatch,
     newMatch
 }

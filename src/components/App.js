@@ -7,6 +7,7 @@ import Register from '../components/misc/Register'
 import Home from '../components/misc/Home'
 import Match from '../components/match/Match'
 import PreMatch from '../components/match/PreMatch'
+import MatchList from '../components/match/MatchesList'
 import Modal from '../components/misc/Modal'
 import TeamList from '../components/team/TeamsList'
 
@@ -28,14 +29,14 @@ class App extends React.Component {
 
   render() {
     const { modalVisibility } = this.state
-    const { showModal, hideModal } = this
+    const { showModal, hideModal, addGoal } = this
     return (
       <div className="App">
         <div>
           {
             modalVisibility ?
               <Modal>
-                <ModalGoalContent {...{ hideModal }} />
+                <ModalGoalContent {...{ hideModal, addGoal }} />
               </Modal> : null
           }
           <Switch>
@@ -53,25 +54,30 @@ class App extends React.Component {
                 <Home />
               </Route>
 
-              <Route exact path="/match">
-                <Match {...{ showModal }} />
+              <Route exact path="/new/match">
+                <PreMatch />
               </Route>
 
-              <Route exact path="/match/new">
-                <PreMatch />
+              <Route exact path="/matches/:id" render={(props) =>
+                <Match  showModal={showModal} {...props} />
+              }>
+                
               </Route>
 
               <Route exact path="/teams/">
                 <TeamList />
+              </Route>
+            
+              <Route exact path="/matches/">
+                <MatchList />
               </Route>
 
               <Route exact path="/teams/new">
                 <NewTeam />
               </Route>
 
-              <Route exact path="/teams/player">
-                <NewPlayer />
-              </Route>
+              <Route exact path="/teams/:id/players" component={NewPlayer}/>
+              
             </AuthenticatedRoute>
           </Switch>
         </div>

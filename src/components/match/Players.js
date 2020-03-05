@@ -5,7 +5,7 @@ const handleSubmit = (event, modalFn) => {
     modalFn()
 }
 
-const PlayerTable = ({ showModal }) =>
+const PlayerTable = ({ showModal, teamA , teamB = {} }) =>
     <table className="PlayerTable table table-striped">
         <thead>
             <tr>
@@ -17,6 +17,20 @@ const PlayerTable = ({ showModal }) =>
             </tr>
         </thead>
         <tbody>
+            
+            {teamA.players.map((player, i) => (
+                <tr key={i}>
+                    <td>{player.number}</td>
+                    <td>
+                        <form className="PlayerForm" onSubmit={event => handleSubmit(event, showModal)}>
+                            <label>{player.name} </label>
+                            <button className="btn btn-success" type="submit">
+                                <i className="fa fa-futbol-o" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            ))}
             <tr>
                 <th>1</th>
                 <td>

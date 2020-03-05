@@ -17,10 +17,10 @@ const Menu = () => {
                     <Link to="teams" className="btn btn-dark mt-4 p-3 w-100">Teams</Link>
                 </li>
                 <li className="w-100">
-                    <Link to="match/new" className="btn btn-dark mt-4 p-3 w-100">New Match</Link>
+                    <Link to="new/match" className="btn btn-dark mt-4 p-3 w-100">New Match</Link>
                 </li>
                 <li className="w-100">
-                    <Link to="match" className="btn btn-dark mt-4 p-3 w-100">Historial</Link>
+                    <Link to="matches" className="btn btn-dark mt-4 p-3 w-100">Historial</Link>
                 </li>
             </ul>
 

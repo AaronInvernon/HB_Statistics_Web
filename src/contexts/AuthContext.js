@@ -35,7 +35,7 @@ export class AuthContextProvider extends React.Component {
 }
 
 export const withAuthConsumer = (WrappedComponent) => (props) =>
-    console.info('props => ', props) ||
+    // console.info('props => ', props) ||
     <AuthContext.Consumer>
         {(authProps) => (<WrappedComponent {...props} {...authProps} />)}
     </AuthContext.Consumer>

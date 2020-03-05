@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom'
 
 class TeamList extends React.Component {
     state = {
-        teams: [],
+        matches: [],
         loading: true
     }
 
     componentDidMount() {
-        HBService.getTeams()
-            .then(teams => {
-                this.setState({ teams, loading: false })
+        HBService.getMatches()
+            .then(matches => {
+                this.setState({ matches, loading: false })
             })
             .catch(error => console.info(error))
     }
@@ -30,11 +30,11 @@ class TeamList extends React.Component {
                 <table className=" table table-striped">
                     <thead>
                         <tr>
-                            <th className="text-center">TEAMS LIST</th>
+                            <th className="text-center">MATCHES LIST</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.teams.map((team, i) => (
+                        {this.state.matches.map((team, i) => (
                             <tr key={i}>
                                 <td>{team.name}</td>
                             </tr>
@@ -42,7 +42,6 @@ class TeamList extends React.Component {
                     </tbody>
                 </table>
 
-                <Link to="/teams/new" className="btn btn-info">Create Team</Link>
                 <Link to="/" className="btn btn-info ml-3">Home</Link>
             </div>
         )
